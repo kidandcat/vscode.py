@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-version = "2.0.0b2"
+version = "2.0.1"
 
 with open("README.md", "r", encoding="utf-8") as readme_file:
     long_description = readme_file.read()
@@ -14,17 +14,17 @@ if os.path.isfile("vscode/extcode.js"):
         data_py.write(data)
 
 setup(
-    name="vscode.py",
+    name="vscode.py2",
     version=version,
     description="Create VSCode Extensions with python",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="Swas.py",
-    author_email="cwswas.py@gmail.com",
+    author="kidandcat",
+    author_email="kidandcat@gmail.com",
     packages=find_packages(),
-    url="https://github.com/CodeWithSwastik/vscode.py",
+    url="https://github.com/kidandcat/vscode.py",
     project_urls={
-        "Issue tracker": "https://github.com/CodeWithSwastik/vscode.py/issues",
+        "Issue tracker": "https://github.com/kidandcat/vscode.py/issues",
     },
     classifiers=[
         "Programming Language :: Python :: 3",
