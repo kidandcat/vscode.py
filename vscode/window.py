@@ -108,7 +108,12 @@ class TextEditor:
         raise NotImplementedError
 
     async def reveal_range(self, range: Range, reveal_type) -> Range:
-        raise NotImplementedError
+        s = range.start
+        e = range.end
+        code = (
+            f"vscode.window.activeTextEditor.revealRange(new vscode.Range({s.line}, {s.character}, {e.line}, {e.character}), 0)"
+        )
+        return await self.ws.run_code(code, wait_for_response=False, thenable=False)
 
     async def show(self, column: ViewColumn):
         raise NotImplementedError
