@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from typing import Iterable, List, Optional, Union
 
 from vscode.enums import ViewColumn, ProgressLocation
-from vscode.objects import QuickPickItem, QuickPickOptions, Position, Range, Selection
+from vscode.objects import QuickPickItem, QuickPickOptions, Position, Range, Selection, StatusBarItem
 
 from vscode.webviews import WebviewPanel
 
@@ -61,6 +61,9 @@ class Window:
             raise ValueError(f"webview_panel must be a WebviewPanel")
 
         await webview_panel._setup(self.ws)
+
+    async def create_status_bar_item(self, alignment, priority):
+        return StatusBarItem(alignment, priority)
 
     def progress(
         self,

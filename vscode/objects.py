@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Optional
 from vscode.utils import snake_case_to_camel_case
 
-__all__ = ("Object", "QuickPickItem", "QuickPickOptions", "Position", "Range")
+__all__ = ("Object", "QuickPickItem", "QuickPickOptions", "Position", "Range", "Selection", "StatusBarItem")
 
 
 class Object:
@@ -182,3 +182,13 @@ class Selection(Range):
 
     def is_reversed(self):
         return self.active < self.anchor
+
+
+class StatusBarItem(Object):
+    def __init__(self, alignment, priority):
+        self.alignment = alignment
+        self.priority = priority
+
+    @property
+    def command(self, cmd) -> None:
+        self.command = cmd
