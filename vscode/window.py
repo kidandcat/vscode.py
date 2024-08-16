@@ -111,7 +111,7 @@ class TextEditor:
         s = range.start
         e = range.end
         code = (
-            f"vscode.window.activeTextEditor.revealRange(new vscode.Range({s.line}, {s.character}, {e.line}, {e.character}), 0)"
+            f"vscode.window.activeTextEditor.revealRange(new vscode.Range({s.line}, {s.character}, {e.line}, {e.character}), 1)"
         )
         return await self.ws.run_code(code, wait_for_response=False, thenable=False)
 
